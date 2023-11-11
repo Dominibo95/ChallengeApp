@@ -1,7 +1,4 @@
-﻿
-using System.Reflection.Metadata;
-
-var name = "Dominik";
+﻿var name = "Dominik";
 int age = 16;
 bool isWoman = true;
 
