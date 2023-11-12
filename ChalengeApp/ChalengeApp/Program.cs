@@ -39,7 +39,7 @@ foreach (var employee in employees)
 
 Console.WriteLine("Najlepszy wynik ma  " + bestEmployee.Name + " " + bestEmployee.Surname);
 
-class Employee
+public class Employee
 {
     private List<int> score = new List<int>();
     public Employee(string name, string surname, int age)
