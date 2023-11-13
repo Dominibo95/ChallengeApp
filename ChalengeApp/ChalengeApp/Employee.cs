@@ -1,33 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ChallengeApp
 {
     public class Employee
     {
-        private List<int> score = new List<int>();
-        public Employee(string name, string surname, int age)
+        private List<float> grades = new List<float>();
+
+        public Employee(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
-            this.Age = age;
         }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-        public int Result
+
+        public string Name { get; private set; }
+
+        public string Surname { get; private set; }
+
+        public void AddGrade(float grade)
         {
-            get
+            this.grades.Add(grade);
+        }
+
+        public Statistics GetStatistics()
+        {
+            var statistics = new Statistics();
+
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            foreach (var grade in this.grades)
             {
-                return this.score.Sum();
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
             }
-        }
-        public void AddScore(int number)
-        {
-            this.score.Add(number);
+
+            statistics.Average /= this.grades.Count;
+            return statistics;
         }
 
     }
