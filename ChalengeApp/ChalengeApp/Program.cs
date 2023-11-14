@@ -5,7 +5,7 @@ Console.WriteLine("Witamy w programie do oceny pracownikow");
 Console.WriteLine();
 Console.WriteLine("Podaj ocene pracownika:");
 
-var employee = new Employee("Aron", "Stone");
+var employee = new Employee("Aron", "Stone" ,"M");
 
 
 while (true)
@@ -36,6 +36,7 @@ while (true)
 
 var statistics = employee.GetStatistics();
 Console.WriteLine($"Imię: {employee.Name}");
+Console.WriteLine($"Płeć: {employee.Sex}");
 Console.WriteLine($"Nazwisko: {employee.Surname}");
 Console.WriteLine($"AVG: {statistics.Average}");
 Console.WriteLine($"Min: {statistics.Min}");
