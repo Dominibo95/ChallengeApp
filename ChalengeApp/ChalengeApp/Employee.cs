@@ -76,6 +76,10 @@
             {
                 this.AddGrade(value);
             }
+            else if (char.TryParse(grade, out char gradeIsChar))
+            {
+                this.AddGrade(gradeIsChar);
+            }
             else
             {
                 Console.WriteLine("String is not float");

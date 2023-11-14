@@ -20,7 +20,7 @@ while (true)
     }
     else
     {
-        employee.AddGrade(input.);
+        employee.AddGrade(input);
     }
 }
 

@@ -5,11 +5,11 @@ namespace ChallengeApp.Tests
     public class Tests
     {
         [Test]
-        public void TestOfStatisticMaxValue()
+        public void TestOfStatisticMaxValueWithStringAndIntegerAsInput()
         {
             var employee = new Employee("Aaron", "Stone");
             //arrange
-            employee.AddGrade(9);
+            employee.AddGrade("A");
             employee.AddGrade(-5);
             employee.AddGrade(10);
             employee.AddGrade(9);
@@ -17,35 +17,48 @@ namespace ChallengeApp.Tests
             var statistic = employee.GetStatistics();
             //assert
             Assert.IsNotNull(statistic);
-            Assert.That(statistic.Max, Is.EqualTo(10));
+            Assert.That(statistic.Max, Is.EqualTo(100.0f));
         }
         [Test]
-        public void TestOfStatisticMinValue()
+        public void TestOfStatisticMinValueWithCharAsInput()
         {
             var employee = new Employee("Aaron", "Stone");
             //arrange
-            employee.AddGrade(9);
-            employee.AddGrade(2);
-            employee.AddGrade(5);
-            employee.AddGrade(7);
+            employee.AddGrade("A");
+            employee.AddGrade('B');
+            employee.AddGrade('c');
+            employee.AddGrade(100);
             //act
             var statistic = employee.GetStatistics();
             //assert
-            Assert.That(statistic.Min, Is.EqualTo(2));
+            Assert.That(statistic.Min, Is.EqualTo(60.0F));
         }
         [Test]
         public void TestOfStatisticAverage()
         {
             var employee = new Employee("Aaron", "Stone");
             //arrange
-            employee.AddGrade(9);
-            employee.AddGrade(-5);
-            employee.AddGrade(8);
-            employee.AddGrade(2);
+            employee.AddGrade('a');
+            employee.AddGrade("B");
+            employee.AddGrade(80);
+            employee.AddGrade(20);
             //act
             var statistic = employee.GetStatistics();
             //assert
-            Assert.That(statistic.Average, Is.EqualTo(3.5));
+            Assert.That(statistic.Average, Is.EqualTo(70.0f));
+        }
+        [Test]
+        public void TestOfStatisticAverageLetter()
+        {
+            var employee = new Employee("Aaron", "Stone");
+            //arrange
+            employee.AddGrade("A");
+            employee.AddGrade('B');
+            employee.AddGrade('C');
+            //act
+            var statistic = employee.GetStatistics();
+            //assert
+            Assert.That(statistic.AverageLetter, Is.EqualTo('A'));
         }
     }
 }
