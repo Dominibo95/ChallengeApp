@@ -1,18 +1,34 @@
 ﻿using ChallengeApp;
 
+
+Console.WriteLine("Witamy w programie do oceny pracownikow");
+Console.WriteLine();
+Console.WriteLine("Podaj ocene pracownika:");
+
 var employee = new Employee("Aron", "Stone");
 
 
-employee.AddGrade(6f);
-employee.AddGrade(5);
-employee.AddGrade(-2);
-employee.AddGrade(3);
-employee.AddGrade(6);
+while (true)
+{
+    var input = Console.ReadLine();
+    Console.WriteLine("Podaj kolejną ocene pracownika:");
+    Console.WriteLine("Użyj q aby zakonczyć dodawanie ocen ");
+    
+    if (input == "q")
+    {
+        break;
+    }
+    else
+    {
+        employee.AddGrade(input.);
+    }
+}
+
 
 var statistics = employee.GetStatistics();
-
-
-Console.WriteLine("Wyniki dla Metody GetStatistics: ");
-Console.WriteLine($"Average: {statistics.Average:N2}");
+Console.WriteLine($"Imię: {employee.Name}");
+Console.WriteLine($"Nazwisko: {employee.Surname}");
+Console.WriteLine($"AVG: {statistics.Average}");
 Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
+Console.WriteLine($"MAX: {statistics.Max}");
+Console.WriteLine($"End Grade: {statistics.AverageLetter}");
