@@ -23,7 +23,7 @@
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("invalid grade value");
             }
         }
         public void AddGrade(short grade)
@@ -56,8 +56,7 @@
                     this.AddGrade(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception("Wrong Letter");
             }
         }
         public void AddGrade(long grade)
@@ -82,7 +81,7 @@
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float or char");
             }
         }
 
