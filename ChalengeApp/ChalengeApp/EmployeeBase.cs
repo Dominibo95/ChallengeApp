@@ -41,7 +41,35 @@ namespace ChallengeApp
             this.AddGrade(value);
         }
 
-        public abstract void AddGrade(char grade);
+        public virtual void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.AddGrade(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.AddGrade(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.AddGrade(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.AddGrade(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.AddGrade(20);
+                    break;
+                default:
+                    throw new Exception("Wrong Letter");
+            }
+        }
+
 
         public abstract Statistics GetStatistics();
     }
