@@ -1,24 +1,15 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new List<float>();
 
-
-        public Employee(string name, string surname, int age)
+        public EmployeeInMemory(string name, string surname)
+            : base(name, surname)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Age = age;
         }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
 
-        public int Age { get; private set; }
-
-
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -30,12 +21,24 @@
                 throw new Exception("invalid grade value");
             }
         }
-        public void AddGrade(short grade)
+
+        public override void AddGrade(string grade)
         {
-            var value = (float)grade;
-            this.AddGrade(value);
+            base.AddGrade(grade);
         }
-        public void AddGrade(char grade)
+
+        public override void AddGrade(int grade)
+        {
+            base.AddGrade((int)grade);
+        }
+
+
+        public override void AddGrade(double grade)
+        {
+            base.AddGrade(grade);
+        }
+
+        public override void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -63,39 +66,8 @@
                     throw new Exception("Wrong Letter");
             }
         }
-        public void AddGrade(long grade)
-        {
-            var value = (float)grade;
-            this.AddGrade(value);
-        }
-        public void AddGrade(int grade)
-        {
-            float gradeAsFloat = grade;
-            this.AddGrade(gradeAsFloat);
-        }
 
-        public void AddGrade(double grade)
-        {
-            var value = (int)grade;
-            this.AddGrade(value);
-        }
-        public void AddGrade(string grade)
-        {
-            if (float.TryParse(grade, out float value))
-            {
-                this.AddGrade(value);
-            }
-            else if (char.TryParse(grade, out char gradeIsChar))
-            {
-                this.AddGrade(gradeIsChar);
-            }
-            else
-            {
-                throw new Exception("String is not float or char");
-            }
-        }
-
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -131,6 +103,5 @@
 
             return statistics;
         }
-
     }
 }
