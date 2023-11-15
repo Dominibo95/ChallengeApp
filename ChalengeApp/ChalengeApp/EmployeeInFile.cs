@@ -4,6 +4,8 @@ namespace ChallengeApp
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
+        public override event GradeAddedDelegate GradeAdded;
+
         private List<float> grades = new List<float>();
 
         public EmployeeInFile(string name, string surname)
@@ -18,6 +20,10 @@ namespace ChallengeApp
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+                }
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else

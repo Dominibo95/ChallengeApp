@@ -6,6 +6,12 @@ Console.WriteLine();
 Console.WriteLine("Podaj ocene pracownika:");
 
 var employee = new EmployeeInFile("Aron", "Stone");
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
 
 
 while (true)
