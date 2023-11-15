@@ -6,6 +6,7 @@ Console.WriteLine();
 Console.WriteLine("Podaj ocene pracownika:");
 
 var employee = new EmployeeInFile("Aron", "Stone");
+//var employee = new EmployeeInMemory("Aron", "Stone");
 employee.GradeAdded += EmployeeGradeAdded;
 
 void EmployeeGradeAdded(object sender, EventArgs args)
@@ -47,3 +48,4 @@ Console.WriteLine($"AVG: {statistics.Average}");
 Console.WriteLine($"Min: {statistics.Min}");
 Console.WriteLine($"MAX: {statistics.Max}");
 Console.WriteLine($"End Grade: {statistics.AverageLetter}");
+Console.WriteLine($"Count : {statistics.Count}");
