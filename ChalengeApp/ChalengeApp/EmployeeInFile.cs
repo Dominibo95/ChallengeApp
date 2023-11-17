@@ -6,7 +6,6 @@ namespace ChallengeApp
         private const string fileName = "grades.txt";
         public override event GradeAddedDelegate GradeAdded;
 
-        private List<float> grades = new List<float>();
 
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
